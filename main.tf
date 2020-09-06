@@ -1,12 +1,11 @@
 module "server_a" {
   source = "../../modules/appserver"
-  subnet = element(var.subnets,0)
+  subnet = element(local.subnets, 0)
   tags   = var.tags
 }
 
 module "server_b" {
   source = "../../modules/appserver"
-  subnet = element(var.subnets,1)
+  subnet = element(local.subnets, 1)
   tags   = var.tags
 }
-
