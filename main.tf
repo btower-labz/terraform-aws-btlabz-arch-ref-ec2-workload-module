@@ -1,11 +1,20 @@
+resource "random_pet" "name" {
+  length    = 2
+  separator = "-"
+}
+
+locals {
+  name = var.name == "" ? random_pet.name.id : var.name
+}
+
 module "server_a" {
-  source = "../../modules/appserver"
+  source = "git::https://github.com/btower-labz/terraform-aws-btlabz-arch-ref-ec2-appserver-module.git?ref=master"
   subnet = element(local.subnets, 0)
   tags   = var.tags
 }
 
 module "server_b" {
-  source = "../../modules/appserver"
+  source = "git::https://github.com/btower-labz/terraform-aws-btlabz-arch-ref-ec2-appserver-module.git?ref=master"
   subnet = element(local.subnets, 1)
   tags   = var.tags
 }

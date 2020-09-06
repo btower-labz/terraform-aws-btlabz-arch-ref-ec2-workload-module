@@ -1,7 +1,7 @@
 variable "name" {
   type = string
   description = "Name prefix to tag workload objects"
-  default = "workload"
+  default = ""
 }
 
 variable "subnets" {
