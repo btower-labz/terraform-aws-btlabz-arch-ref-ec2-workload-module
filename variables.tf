@@ -1,11 +1,11 @@
 variable "name" {
-  type = string
+  type        = string
   description = "Name prefix to tag workload objects"
-  default = ""
+  default     = ""
 }
 
 variable "subnets" {
-  type = list
+  type        = list
   description = "Subnets list. Any change here may cause EC2 instances recreation"
 }
 
