@@ -4,12 +4,12 @@ variable "ami" {
   default     = ""
 }
 
-data "aws_ami" "amzn2" {
+data "aws_ami" "app" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-2.0.*.0-x86_64-gp2"]
+    values = ["aws-ec2-reference-application-*"]
   }
 
   filter {
@@ -17,11 +17,12 @@ data "aws_ami" "amzn2" {
     values = ["hvm"]
   }
 
-  owners = ["656109587541"] # Canonical
+  # TODO: hardcode
+  owners = ["725949405513"] # Private
 }
 
 locals {
-  ami = "${var.ami == "" ? data.aws_ami.amzn2.id : var.ami}"
+  ami = "${var.ami == "" ? data.aws_ami.app.id : var.ami}"
 }
 
 output "latest_ami" {
