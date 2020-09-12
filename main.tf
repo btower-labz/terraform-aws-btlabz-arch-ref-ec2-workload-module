@@ -12,7 +12,7 @@ module "server_a" {
   source          = "../../modules/appserver"
   subnet          = element(local.subnets, 0)
   security_groups = [aws_security_group.workload.id]
-  ami = local.ami
+  ami             = local.ami
   tags            = var.tags
 }
 
@@ -21,6 +21,6 @@ module "server_b" {
   source          = "../../modules/appserver"
   subnet          = element(local.subnets, 1)
   security_groups = [aws_security_group.workload.id]
-  ami = local.ami
+  ami             = local.ami
   tags            = var.tags
 }

@@ -4,18 +4,18 @@ resource "aws_lb_target_group" "main" {
   protocol = "HTTP"
 
   health_check {
-    enabled = true
+    enabled  = true
     interval = 30 # seconds
-    path = "/"
-    port = 8081
+    path     = "/"
+    port     = 8081
   }
 
   stickiness {
-    type = "lb_cookie"
+    type    = "lb_cookie"
     enabled = false
   }
 
-  vpc_id   = data.aws_vpc.main.id
+  vpc_id = data.aws_vpc.main.id
   tags = merge(
     map(
       "Workload", "local.name"
