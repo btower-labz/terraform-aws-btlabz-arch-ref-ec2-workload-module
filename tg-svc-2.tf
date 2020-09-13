@@ -50,6 +50,16 @@ resource "aws_lb_listener_rule" "service2" {
       ]
     }
   }
+
+  dynamic "condition" {
+    for_each = var.hostnames
+    content {
+      host_header {
+        values = [condition.value]
+      }
+    }
+  }
+
 }
 
 output "tg_service2_arn" {
