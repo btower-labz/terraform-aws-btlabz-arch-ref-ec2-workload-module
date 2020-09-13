@@ -18,3 +18,14 @@ variable "tags" {
   type        = map
   default     = {}
 }
+
+variable "zone_id" {
+  description = "R53 zone identifier to use for records"
+  type        = string
+  default     = ""
+}
+
+variable "lb_listener_arn" {
+  description = "ALB listener ARN to bind all the rules"
+  type        = string
+}

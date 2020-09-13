@@ -13,6 +13,7 @@ module "server_a" {
   subnet          = element(local.subnets, 0)
   security_groups = [aws_security_group.workload.id]
   ami             = local.ami
+  zone_id         = var.zone_id
   tags            = var.tags
 }
 
@@ -22,5 +23,6 @@ module "server_b" {
   subnet          = element(local.subnets, 1)
   security_groups = [aws_security_group.workload.id]
   ami             = local.ami
+  zone_id         = var.zone_id
   tags            = var.tags
 }
