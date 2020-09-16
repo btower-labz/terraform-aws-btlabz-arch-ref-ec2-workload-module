@@ -8,8 +8,8 @@ locals {
 }
 
 module "server_a" {
-  #source = "git::https://github.com/btower-labz/terraform-aws-btlabz-arch-ref-ec2-appserver-module.git?ref=master"
-  source          = "../../modules/appserver"
+  source = "git::https://github.com/btower-labz/terraform-aws-btlabz-arch-ref-ec2-appserver-module.git?ref=master"
+  #source          = "../../modules/appserver"
   subnet          = element(local.subnets, 0)
   security_groups = [aws_security_group.workload.id]
   ami             = local.ami
@@ -18,8 +18,8 @@ module "server_a" {
 }
 
 module "server_b" {
-  #source = "git::https://github.com/btower-labz/terraform-aws-btlabz-arch-ref-ec2-appserver-module.git?ref=master"
-  source          = "../../modules/appserver"
+  source = "git::https://github.com/btower-labz/terraform-aws-btlabz-arch-ref-ec2-appserver-module.git?ref=master"
+  #source          = "../../modules/appserver"
   subnet          = element(local.subnets, 1)
   security_groups = [aws_security_group.workload.id]
   ami             = local.ami
